@@ -18,8 +18,9 @@ import java.util.List;
 @Slf4j
 public class ExchangeRatetDto {
     @Id
-    private String idExchangeRate;
-    private Double exchange;
+    private String id;
+    private Double saleRate;
+    private Double purchaseRate;
     private String currency;
     private CurrencyType currencyType;
 
@@ -32,9 +33,10 @@ public class ExchangeRatetDto {
                 .build();
 
         ExchangeRate exchangeRate = ExchangeRate.builder()
-                .idExchangeRate(this.getIdExchangeRate())
+                .id(this.getId())
                 .currencyType(currencyType)
-                .exchange(this.getExchange())
+                .saleRate(this.getSaleRate())
+                .purchaseRate(this.getPurchaseRate())
                 .build();
         log.info("fn MapperToExchangeRate-------: ");
         return Mono.just(exchangeRate);

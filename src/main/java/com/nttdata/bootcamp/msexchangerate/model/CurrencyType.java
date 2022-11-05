@@ -13,8 +13,5 @@ import org.springframework.data.annotation.Id;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CurrencyType {
-    @Id
-    private String id;
     private String currencyType;
-    private String value;
 }

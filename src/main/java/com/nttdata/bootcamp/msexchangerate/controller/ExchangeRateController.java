@@ -41,10 +41,10 @@ public class ExchangeRateController {
     public Mono<ResponseEntity<Map<String, Object>>> saveExchangeRate(@Valid @RequestBody Mono<ExchangeRatetDto> ExchangeRateDto) {
         Map<String, Object> request = new HashMap<>();
         return ExchangeRateDto.flatMap(bnkAcc -> service.save(bnkAcc).map(baSv -> {
-                    request.put("bankAccount", baSv);
+                    request.put("ExchangeRatet", baSv);
                     request.put("message", "Tipo de cambio guardado con exito");
                     request.put("timestamp", new Date());
-                    return ResponseEntity.created(URI.create("/api/bankaccounts/".concat(baSv.getIdExchangeRate())))
+                    return ResponseEntity.created(URI.create("/api/bankaccounts/".concat(baSv.getId())))
                             .contentType(MediaType.APPLICATION_JSON).body(request);
                 })
         );

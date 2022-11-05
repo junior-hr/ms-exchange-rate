@@ -14,11 +14,7 @@ local:
       ms-currency-type: localhost
 spring:
   application:
-    name: service-mobile-wallet
-  data:
-    mongodb:
-      uri: mongodb://localhost:27017/ExchangeRateDB
-      auto-index-creation: true
+    name: service-exchange-rate
   config:
     import: optional:configserver:http://ms-config-server:8888
 eureka:
@@ -28,7 +24,7 @@ eureka:
 resilience4j:
   circuitbreaker:
     instances:
-      bankaccountCB:
+      currencytypeCB:
         failureRateThreshold: 50
         minimumNumberOfCalls: 4
         slidingWindowType: COUNT_BASED

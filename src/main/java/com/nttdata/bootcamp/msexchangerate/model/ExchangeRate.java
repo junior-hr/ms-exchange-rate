@@ -14,8 +14,9 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class ExchangeRate {
 
     @Id
-    private String idExchangeRate;
+    private String id;
     private CurrencyType currencyType;
-    private Double exchange;
+    private Double saleRate;
+    private Double purchaseRate;
 
 }
