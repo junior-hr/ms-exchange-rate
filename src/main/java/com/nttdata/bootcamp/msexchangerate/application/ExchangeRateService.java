@@ -11,4 +11,5 @@ public interface ExchangeRateService {
     public Mono<ExchangeRate> save(ExchangeRatetDto exchangeRateDto);
     public Mono<ExchangeRate> update(ExchangeRatetDto exchangeRateDto, String idExchangeRate);
     public Mono<Void> delete(String idExchangeRate);
+    public Mono<ExchangeRate> findByCurrencyType(String currencyType);
 }
