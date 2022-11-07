@@ -31,9 +31,9 @@ public class ExchangeRateRepository {
                             Optional<ExchangeRate> cType = l.stream()
                                     .filter(c -> c.getCurrencyType().getCurrencyType().equals(ct))
                                     .findFirst();
-                            if(cType.isPresent()){
+                            if (cType.isPresent()) {
                                 return Mono.just(cType.get());
-                            }else{
+                            } else {
                                 return Mono.empty();
                             }
 
@@ -52,7 +52,7 @@ public class ExchangeRateRepository {
 
     public Mono<Void> delete(ExchangeRate currencyType) {
         return this.reactiveRedisOperations.<String, ExchangeRate>opsForHash()
-                .remove("currencyTypes", currencyType.getId())
+                .remove("exchangeRates", currencyType.getId())
                 .flatMap(p -> Mono.just(currencyType)).then();
     }
 
